@@ -1,11 +1,11 @@
-modules = ["bun"]
-run = "bun i && bun run dev"
+modules = ["nodejs-20"]
+run = "npm run dev"
 
 [nix]
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "bun run start"]
+run = ["sh", "-c", "npm run start"]
 
 [[ports]]
 localPort = 3000
