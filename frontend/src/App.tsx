@@ -1,11 +1,32 @@
-import React from "react";
+import { useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { httpBatchLink } from "@trpc/client";
+import { trpc } from "./config/trpc";
 import Welcome from "./components/Welcome";
+import DataFetcher from "./components/DataFetcher";
+import "./App.css";
 
 function App() {
+  const [queryClient] = useState(() => new QueryClient());
+  const [trpcClient] = useState(() =>
+    trpc.createClient({
+      links: [
+        httpBatchLink({
+          url: "http://localhost:4000/trpc",
+        }),
+      ],
+    })
+  );
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-8">
-      <Welcome />
-    </main>
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>
+        <div className="App">
+          <Welcome />
+          <DataFetcher />
+        </div>
+      </QueryClientProvider>
+    </trpc.Provider>
   );
 }
 

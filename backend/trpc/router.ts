@@ -1,21 +1,15 @@
 import { z } from "zod";
-import sampleRouter from "./sample.trpc";
 import { publicProcedure, router } from "./trpc";
 
 // combined router
 export const appRouter = router({
-  test: publicProcedure
-    .input(
-      z.object({
-        hello: z.string(),
-      })
-    )
-    .query((req) => {
-      req.input; // string
-      console.log(req);
-      return { id: req.input, name: "world" };
+  hello: publicProcedure
+    .input(z.object({ name: z.string() }))
+    .query(({ input }) => {
+      return {
+        greeting: `Hello, ${input.name}!`,
+      };
     }),
-  sample: sampleRouter,
 });
 
 // type definition of trpc API

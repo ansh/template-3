@@ -1,16 +1,15 @@
-import { createTRPCProxyClient, httpBatchLink } from "@trpc/client";
+import { httpBatchLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
 import type { AppRouter } from "../../../backend/trpc/router";
-//     👆 **type-only** import
 
 // Pass AppRouter as generic here. 👇 This lets the `trpc` object know
 // what procedures are available on the server and their input/output types.
-export const trpc = createTRPCProxyClient<AppRouter>({
+export const trpc = createTRPCReact<AppRouter>();
+
+export const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: "http://localhost:4000",
+      url: "http://localhost:4000/trpc",
     }),
   ],
 });
-
-export const trpcQuery = createTRPCReact<AppRouter>();
