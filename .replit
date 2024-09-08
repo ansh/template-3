@@ -1,5 +1,5 @@
 modules = ["bun"]
-run = "npm run dev"
+run = "bun run dev"
 
 [nix]
 channel = "stable-24_05"
