@@ -1,8 +1,8 @@
-modules = ["nodejs-20", "web"]
-run = "node index.js"
+modules = ["bun"]
+run = "npm run dev"
 
 [nix]
 channel = "stable-24_05"
 
 [deployment]
-run = ["sh", "-c", "node index.js"]
+run = ["sh", "-c", "npm run start"]
