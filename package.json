@@ -8,7 +8,7 @@
   "packageManager": "bun@1.1.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"bun run dev:frontend\" \"bun run dev:backend\"",
+    "dev": "concurrently \"bun run dev:backend\" \"bun run dev:frontend\"",
     "dev:frontend": "bun run --cwd frontend dev",
     "dev:backend": "bun run --cwd backend dev ",
     "build": "bun run build:frontend && bun run build:backend",

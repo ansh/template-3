@@ -177,3 +177,6 @@ dist
 
 # Turbo
 .turbo
+
+
+backend/google-account-credentials.json
