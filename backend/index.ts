@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 dotenv.config();
 import morgan from "morgan";
 import * as trpcExpress from "@trpc/server/adapters/express";
-import { appRouter } from "./trpc/router";
-import { createContext } from "./trpc/trpc";
+import { appRouter } from "./src/trpc/router";
+import { createContext } from "./src/trpc/trpc";
 import axios from "axios";
 import cors from "cors";
 

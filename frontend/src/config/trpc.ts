@@ -1,6 +1,6 @@
 import { httpBatchLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
-import type { AppRouter } from "../../../backend/trpc/router";
+import type { AppRouter } from "../../../backend/src/trpc/router";
 
 // Pass AppRouter as generic here. 👇 This lets the `trpc` object know
 // what procedures are available on the server and their input/output types.
