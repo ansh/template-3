@@ -1,6 +1,6 @@
 import { httpBatchLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
-import type { AppRouter } from "../../../backend/src/trpc/router";
+import type { AppRouter } from "../../backend/src/trpc/router";
 import { auth } from "./firebase";
 import { QueryClient } from "@tanstack/react-query";
 
@@ -11,7 +11,7 @@ export const queryClient = new QueryClient();
 export const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: "http://localhost:3001/trpc",
+      url: `https://${window.location.hostname}/trpc`,
       async headers() {
         const token = await auth.currentUser?.getIdToken();
         return token ? { Authorization: `Bearer ${token}` } : {};
