@@ -8,11 +8,14 @@
   "packageManager": "bun@1.1.0",
   "type": "module",
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "concurrently \"bun run dev:frontend\" \"bun run dev:backend\"",
+    "dev:frontend": "bun run --cwd frontend dev",
+    "dev:backend": "bun run --cwd backend dev",
     "build": "turbo run build"
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "concurrently": "^8.2.0",
     "turbo": "^2.1.1"
   },
   "peerDependencies": {
