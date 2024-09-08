@@ -5,18 +5,15 @@
     "backend"
   ],
   "private": true,
+  "packageManager": "bun@1.1.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"bun run dev --workspace=frontend\" \"bun run dev --workspace=backend\"",
-    "dev:frontend": "bun run dev --workspace=frontend",
-    "dev:backend": "bun run dev --workspace=backend",
-    "build": "bun run build --workspace=frontend && bun run build --workspace=backend",
-    "start": "bun run start --workspace=backend",
-    "lint": "bun run lint --workspace=frontend && bun run lint --workspace=backend"
+    "dev": "turbo run dev",
+    "build": "turbo run build"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "concurrently": "^8.0.0"
+    "turbo": "^2.1.1"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

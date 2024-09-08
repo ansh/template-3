@@ -2,12 +2,14 @@
   "name": "backend",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun --watch index.ts",
+    "build": "tsc"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/express": "^4.17.21",
-    "@types/morgan": "^1.9.9",
-    "nodemon": "^3.1.4",
-    "tsx": "^4.19.0"
+    "@types/morgan": "^1.9.9"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

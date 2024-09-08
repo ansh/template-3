@@ -13,7 +13,11 @@ const port = process.env.PORT || 3000;
 app.use(express.json()); // for parsing application/json
 app.use(morgan("dev")); // for pretty logging
 
-// initialize trpc on express server
+app.get("/", (req, res) => {
+  res.send("Your backend server is running :)");
+});
+
+// initialize trpc on express servers
 const TRPC_ENDPOINT = "/trpc";
 app.use(
   TRPC_ENDPOINT,
