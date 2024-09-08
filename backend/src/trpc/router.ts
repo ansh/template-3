@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { publicProcedure, router } from "./trpc";
+import { auth } from "../firebase";
 
 // combined router
 export const appRouter = router({
@@ -10,6 +11,14 @@ export const appRouter = router({
         greeting: `Hello, ${input.name}!`,
       };
     }),
+  verifyToken: publicProcedure.input(z.string()).mutation(async ({ input }) => {
+    try {
+      const decodedToken = await auth.verifyIdToken(input);
+      return { uid: decodedToken.uid };
+    } catch (error) {
+      throw new Error("Invalid token");
+    }
+  }),
 });
 
 // type definition of trpc API

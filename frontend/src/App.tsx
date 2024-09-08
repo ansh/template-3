@@ -1,32 +1,25 @@
-import { useState } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { httpBatchLink } from "@trpc/client";
-import { trpc } from "./config/trpc";
+import React from "react";
+import { AuthProvider } from "./contexts/AuthContext";
+import Auth from "./components/Auth";
 import Welcome from "./components/Welcome";
 import DataFetcher from "./components/DataFetcher";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { trpc, trpcClient, queryClient } from "./config/trpc";
 
-function App() {
-  const [queryClient] = useState(() => new QueryClient());
-  const [trpcClient] = useState(() =>
-    trpc.createClient({
-      links: [
-        httpBatchLink({
-          url: "http://localhost:4000/trpc",
-        }),
-      ],
-    })
-  );
-
+const App: React.FC = () => {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <div className="App">
-          <Welcome />
-          <DataFetcher />
-        </div>
+        <AuthProvider>
+          <div className="App">
+            <Auth />
+            <Welcome />
+            <DataFetcher />
+          </div>
+        </AuthProvider>
       </QueryClientProvider>
     </trpc.Provider>
   );
-}
+};
 
 export default App;
