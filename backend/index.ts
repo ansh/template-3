@@ -10,7 +10,7 @@ import cors from "cors";
 
 // init express server
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 
 // Add this line to enable CORS
 app.use(cors());
