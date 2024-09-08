@@ -11,12 +11,13 @@
     "dev": "concurrently \"bun run dev:frontend\" \"bun run dev:backend\"",
     "dev:frontend": "bun run --cwd frontend dev",
     "dev:backend": "bun run --cwd backend dev",
-    "build": "turbo run build"
+    "build": "bun run build:frontend && bun run build:backend",
+    "build:frontend": "bun run --cwd frontend build",
+    "build:backend": "bun run --cwd backend build"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "concurrently": "^8.2.0",
-    "turbo": "^2.1.1"
+    "concurrently": "^8.2.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
