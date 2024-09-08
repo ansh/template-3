@@ -6,10 +6,15 @@ import * as trpcExpress from "@trpc/server/adapters/express";
 import { appRouter } from "./trpc/router";
 import { createContext } from "./trpc/trpc";
 import axios from "axios";
+import cors from "cors";
 
 // init express server
 const app = express();
 const port = process.env.PORT || 4000;
+
+// Add this line to enable CORS
+app.use(cors());
+
 app.use(express.json()); // for parsing application/json
 app.use(morgan("dev")); // for pretty logging
 
