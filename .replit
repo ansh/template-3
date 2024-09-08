@@ -10,6 +10,7 @@ run = ["sh", "-c", "bun run start"]
 [[ports]]
 localPort = 3000
 externalPort = 80
+exposeLocalhost = true
 
 [[ports]]
 localPort = 4000
