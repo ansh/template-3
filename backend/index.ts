@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-dotenv.config();
+dotenv.config({ path: "../.env" });
 import morgan from "morgan";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import { appRouter } from "./src/trpc/router";

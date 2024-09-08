@@ -1,15 +1,9 @@
-# template-3
+# Ansh & Riley's Template 3 (Full-Stack React + Node.js)
 
-To install dependencies:
+- Frontend: React, TailwindCSS, tRPC, React Query, Firebase
+- Backend: Node.js, Express, tRPC, Firebase Admin SDK
 
-```bash
-bun install
-```
+## Getting Started
 
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.1.24. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+1. Click "Use Template" on Replit
+2. 

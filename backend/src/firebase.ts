@@ -1,5 +1,7 @@
 import { initializeApp, cert, applicationDefault } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
+import dotenv from "dotenv";
+dotenv.config({ path: "../.env" });
 
 if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
   throw new Error(
