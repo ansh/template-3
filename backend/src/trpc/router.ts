@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { publicProcedure, router } from "./trpc";
+import { publicProcedure, router, privateProcedure } from "./trpc";
 import { auth } from "../firebase";
 
 // combined router
@@ -18,6 +18,11 @@ export const appRouter = router({
     } catch (error) {
       throw new Error("Invalid token");
     }
+  }),
+  getProtectedData: privateProcedure.query(() => {
+    return {
+      message: "This is protected data from the backend!",
+    };
   }),
 });
 

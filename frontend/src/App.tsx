@@ -5,6 +5,7 @@ import Welcome from "./components/Welcome";
 import DataFetcher from "./components/DataFetcher";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { trpc, trpcClient, queryClient } from "./config/trpc";
+import AuthenticatedDataFetcher from "./components/AuthenticatedDataFetcher";
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
             <Auth />
             <Welcome />
             <DataFetcher />
+            <AuthenticatedDataFetcher />
           </div>
         </AuthProvider>
       </QueryClientProvider>
