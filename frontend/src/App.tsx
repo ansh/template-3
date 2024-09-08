@@ -8,11 +8,12 @@ function App() {
           Welcome to Template 3
         </h2>
       </div>
-      <div>
+      <div className="flex-grow flex items-center justify-center">
         <h1 className="text-6xl font-bold text-center">
           Make anything you imagine 🪄
         </h1>
       </div>
+      <div></div>
     </main>
   );
 }
