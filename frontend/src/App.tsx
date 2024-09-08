@@ -4,7 +4,6 @@ import { httpBatchLink } from "@trpc/client";
 import { trpc } from "./config/trpc";
 import Welcome from "./components/Welcome";
 import DataFetcher from "./components/DataFetcher";
-import "./App.css";
 
 function App() {
   const [queryClient] = useState(() => new QueryClient());
